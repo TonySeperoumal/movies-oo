@@ -15,4 +15,10 @@
 		{
 			include("views/details.php");
 		}
+
+		public function fourofour()
+		{
+			header('HTTP/1.0 404 Not Found');
+			include("views/errors/404.php");
+		}
 	}

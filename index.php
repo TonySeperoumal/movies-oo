@@ -14,3 +14,6 @@
 		//details du film
 		$controller->details();
 	}
+	else {
+		$controller->fourofour();
+	}
