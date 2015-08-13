@@ -8,11 +8,16 @@
 		//affiche la page d'accueil
 		public function home()
 		{
+			$movieManager = new \Model\MovieManager();
+			$movies = $movieManager->getRandomMovies(30);
+
 			include("views/home.php");
 		}
 		//affiche la page de details d'un film
-		public function details()
+		public function details($id)
 		{
+			$movieManager = new \Model\MovieManager();
+			$movie = $movieManager->getIdMovie($id);
 			include("views/details.php");
 		}
 

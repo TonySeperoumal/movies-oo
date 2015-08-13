@@ -12,7 +12,8 @@
 	}
 	elseif ($_GET['p'] == "details/"){
 		//details du film
-		$controller->details();
+		$id = $_GET['id'];
+		$controller->details($id);
 	}
 	else {
 		$controller->fourofour();
