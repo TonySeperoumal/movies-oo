@@ -1,3 +1,16 @@
 <?php
+	
+	include('config.php');
 
-	print_r($_GET);
+	spl_autoload_register();
+	$controller = new Controller\DefaultController();
+
+	if (empty($_GET)){
+		//accueill
+		$controller->home();
+
+	}
+	elseif ($_GET['p'] == "details/"){
+		//details du film
+		$controller->details();
+	}
