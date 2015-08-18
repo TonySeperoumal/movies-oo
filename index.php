@@ -3,6 +3,7 @@
 	include('config.php');
 
 	spl_autoload_register();
+	
 	$controller = new Controller\DefaultController();
 
 	if (empty($_GET)){

@@ -4,8 +4,16 @@
 
 	use \PDO;
 
-	class MovieManager
+	class MovieManager extends Manager\Manager
 	{
+
+		
+
+		public function setTable()
+		{
+			$this->table = "movies";
+		}
+
 		public function getRandomMovies($number)
 		{
 			$dbConnector = new Manager\DatabaseConnector();
@@ -23,21 +31,5 @@
 			$movies = $sth->fetchAll();
 			return $movies;
 		}
-		public function getIdMovie($id)
-		{
-			$dbConnector = new Manager\DatabaseConnector();
-			$dbh = $dbConnector->getDbh();
-
-			$sql = "SELECT id, title, year, imdb_id
-					FROM movies 
-					WHERE id = :id";
-			$sth = $dbh->prepare($sql);
-			$sth->bindValue(':id', $id);
-			$sth->execute();
-
-			$movie = $sth->fetch();
-			return $movie;
-
-		}
-
+		
 	}
